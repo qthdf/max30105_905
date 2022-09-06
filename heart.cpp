@@ -159,7 +159,7 @@ namespace Microbit {
 		return myBeat;
 	}
 
-	int16_t spo2(uint8_t type)
+	int32_t spo2(uint32_t type)
 	{
 		uint8_t myspo2;
 		bufferLength = 100;
@@ -177,11 +177,11 @@ namespace Microbit {
 		switch(type)
 			{
 				case 0:
-					myspo2 = (uint8_t)spo2_value;
+					myspo2 = (uint32_t)spo2_value;
 					break;
 					
 				case 1:
-					myspo2 = (uint8_t)validSPO2;
+					myspo2 = (uint32_t)validSPO2;
 					break;
 					
 			}
