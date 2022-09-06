@@ -159,7 +159,7 @@ namespace Microbit {
 		return myBeat;
 	}
 
-	int32_t spo2(uint32_t type)
+	int16_t spo2(uint8_t type)
 	{
 		uint8_t myspo2;
 		bufferLength = 100;
@@ -170,18 +170,18 @@ namespace Microbit {
 			irBuffer[i] = particleSensor->getIR();
 			particleSensor->nextSample(); //We're finished with this sample so move to next sample
 		}
-		maxim_heart_rate_and_oxygen_saturation(irBuffer, bufferLength, redBuffer, &spo2value, &validSPO2, &heartRate, &validHeartRate);
+		
 		
 	
 		
 		switch(type)
 			{
 				case 0:
-					myspo2 = (uint32_t)spo2_value;
+					myspo2 = (uint8_t)spo2_value;
 					break;
 					
 				case 1:
-					myspo2 = (uint32_t)validSPO2;
+					myspo2 = (uint8_t)validSPO2;
 					break;
 					
 			}
