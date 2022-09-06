@@ -195,7 +195,6 @@ namespace Microbit {
 				
 			}
 			maxim_heart_rate_and_oxygen_saturation(irBuffer, bufferLength, redBuffer, &spo2_value, &validSPO2, &heartRate, &validHeartRate);
-		}
 			switch(type)
 			{
 				case 0:
@@ -207,7 +206,9 @@ namespace Microbit {
 					break;
 					
 			}
-		return myspo2;
+			return myspo2;
+		}
+			
 	}
 
 
