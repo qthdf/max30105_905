@@ -16,6 +16,8 @@
         "MAX30105.cpp",
         "MAX30105.h",
         "shims.d.ts",
+        "algorithm.cpp",
+        "algorithm.h",
         "enums.d.ts"
     ],
     "testFiles": [
