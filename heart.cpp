@@ -159,7 +159,11 @@ namespace Microbit {
 		return myBeat;
 	}
 
-	
+	int16_t spo2(uint8_t type)
+	{
+		
+			
+	}
 
 
 
