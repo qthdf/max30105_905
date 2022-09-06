@@ -37,9 +37,9 @@ enum HeartbeatType {
     
 enum Spo2Type {
     //% block="瞬时血氧" enumval=0
-    BPM = 0,
+    S1 = 0,
     //% block="平均血氧" enumval=1
-    AVG = 1,
+    S2 = 1,
     };
 
 
@@ -178,8 +178,8 @@ namespace Microbit {
 			//dumping the first 25 sets of samples in the memory and shift the last 75 sets of samples to the top
 			for (byte i = 25; i < 100; i++)
 			{
-			redBuffer[i - 25] = redBuffer[i];
-			irBuffer[i - 25] = irBuffer[i];
+				redBuffer[i - 25] = redBuffer[i];
+				irBuffer[i - 25] = irBuffer[i];
 			}
 
 			//take 25 sets of samples before calculating the heart rate.
