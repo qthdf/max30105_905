@@ -159,35 +159,7 @@ namespace Microbit {
 		return myBeat;
 	}
 
-	int16_t spo2(uint8_t type)
-	{
-		uint8_t myspo2;
-		bufferLength = 100;
-		for (byte i = 0 ; i < bufferLength ; i++)
-		{
-			
-			redBuffer[i] = particleSensor->getRed();
-			irBuffer[i] = particleSensor->getIR();
-			particleSensor->nextSample(); //We're finished with this sample so move to next sample
-		}
-		
-		
 	
-		
-		switch(type)
-			{
-				case 0:
-					myspo2 = (uint8_t)spo2_value;
-					break;
-					
-				case 1:
-					myspo2 = (uint8_t)validSPO2;
-					break;
-					
-			}
-		return myspo2;
-			
-	}
 
 
 
