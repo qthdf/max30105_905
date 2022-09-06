@@ -67,7 +67,7 @@ namespace Microbit {
 	uint32_t irBuffer[100]; //infrared LED sensor data
 	uint32_t redBuffer[100];  //red LED sensor data
 	int32_t bufferLength; //data length
-	int32_t spo2_value; //SPO2 value
+	int32_t spo2values; //SPO2 value
 	int8_t validSPO2; //indicator to show if the SPO2 calculation is valid
 	int32_t heartRate; //heart rate value
 	int8_t validHeartRate; //indicator to show if the heart rate calculation is valid
@@ -172,7 +172,7 @@ namespace Microbit {
 			irBuffer[i] = particleSensor->getIR();
 			particleSensor->nextSample(); //We're finished with this sample so move to next sample
 		}
-		maxim_heart_rate_and_oxygen_saturation(irBuffer, bufferLength, redBuffer, &spo2_value, &validSPO2, &heartRate, &validHeartRate);
+		maxim_heart_rate_and_oxygen_saturation(irBuffer, bufferLength, redBuffer, &spo2values, &validSPO2, &heartRate, &validHeartRate);
 		while (1)
 		{
 			//dumping the first 25 sets of samples in the memory and shift the last 75 sets of samples to the top
@@ -195,12 +195,12 @@ namespace Microbit {
 				//After gathering 25 new samples recalculate HR and SP02
 				
 			}
-			maxim_heart_rate_and_oxygen_saturation(irBuffer, bufferLength, redBuffer, &spo2_value, &validSPO2, &heartRate, &validHeartRate);
+			maxim_heart_rate_and_oxygen_saturation(irBuffer, bufferLength, redBuffer, &spo2values, &validSPO2, &heartRate, &validHeartRate);
 		}
 			switch(type)
 			{
 				case 0:
-					myspo2 = (uint8_t)spo2_value;
+					myspo2 = (uint8_t)spo2values;
 					break;
 					
 				case 1:
