@@ -33,6 +33,15 @@ enum HeartbeatType{
 	AVG=1,
 };
 
+
+enum Spo2Type{
+	//% block="BPM" enumval=0
+	BPM=0,
+	//% block="AVG" enumval=1
+	AVG=1,
+};
+
+
 enum LEDMode{
 	//% block="Red" enumval=2
 	RedLED=2,
