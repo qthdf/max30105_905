@@ -159,21 +159,21 @@ namespace Microbit {
 		return myBeat;
 	}
 
-	int16_t spo2(uint8_t type)
+	int16_t spo(uint8_t type)
 	{
-		uint8_t myspo2;
+		uint8_t myspo;
 		switch(type)
 		{
 			case 0:
-				myspo2 = 0;
+				myspo = 0;
 				break;
 				
 			case 1:
-				myBeat =1;
+				myspo =1;
 				break;
 				
 		}
-		return myspo2;
+		return myspo;
 			
 	}
 
