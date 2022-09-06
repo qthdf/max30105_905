@@ -35,10 +35,10 @@ enum HeartbeatType{
 
 
 enum Spo2Type{
-	//% block="BPM" enumval=0
-	BPM=0,
-	//% block="AVG" enumval=1
-	AVG=1,
+	//% block="瞬时血氧" enumval=0
+	S1=0,
+	//% block="平均血氧" enumval=1
+	S2=1,
 };
 
 
@@ -192,8 +192,9 @@ namespace Microbit {
 				irBuffer[i] = particleSensor->getIR();
 				particleSensor->nextSample(); //We're finished with this sample so move to next sample
 				//After gathering 25 new samples recalculate HR and SP02
-				maxim_heart_rate_and_oxygen_saturation(irBuffer, bufferLength, redBuffer, &spo2_value, &validSPO2, &heartRate, &validHeartRate);
+				
 			}
+			maxim_heart_rate_and_oxygen_saturation(irBuffer, bufferLength, redBuffer, &spo2_value, &validSPO2, &heartRate, &validHeartRate);
 		}
 			switch(type)
 			{
