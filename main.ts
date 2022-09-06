@@ -165,7 +165,7 @@ namespace Microbit {
 	*/
 	//% weight=23
 	//% blockId="gatorParticle_spo2"
-	//% block="detect heartbeat in %Spo2Type"
+	//% block="detect spo2 in %Spo2Type"
 	//% shim=Microbit::spo2
 	export function spo2(type: Spo2Type): number
 	{
