@@ -161,7 +161,19 @@ namespace Microbit {
 
 	int16_t spo2(uint8_t type)
 	{
-		
+		uint8_t myspo2;
+		switch(type)
+		{
+			case 0:
+				myspo2 = 0;
+				break;
+				
+			case 1:
+				myBeat =1;
+				break;
+				
+		}
+		return myspo2;
 			
 	}
 
