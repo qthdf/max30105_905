@@ -34,9 +34,9 @@
     
     declare const enum Spo2Type {
     //% block="瞬时血氧" enumval=0
-    BPM = 0,
+    S1 = 0,
     //% block="平均血氧" enumval=1
-    AVG = 1,
+    S2 = 1,
     }
 
 
