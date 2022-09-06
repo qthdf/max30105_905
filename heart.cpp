@@ -166,6 +166,8 @@ namespace Microbit {
 		bufferLength = 100;
 		for (byte i = 0 ; i < bufferLength ; i++)
 		{
+			while (particleSensor->available() == false) //do we have new data?
+				particleSensor->check(); //Check the sensor for new data
 			redBuffer[i] = particleSensor->getRed();
 			irBuffer[i] = particleSensor->getIR();
 			particleSensor->nextSample(); //We're finished with this sample so move to next sample
@@ -183,27 +185,29 @@ namespace Microbit {
 			//take 25 sets of samples before calculating the heart rate.
 			for (byte i = 75; i < 100; i++)
 			{
-			while (particleSensor->available() == false) //do we have new data?
-				particleSensor->check(); //Check the sensor for new data
+				while (particleSensor->available() == false) //do we have new data?
+					particleSensor->check(); //Check the sensor for new data
 
-			
-			redBuffer[i] = particleSensor->getRed();
-			irBuffer[i] = particleSensor->getIR();
-			particleSensor->nextSample(); //We're finished with this sample so move to next sample
-			//After gathering 25 new samples recalculate HR and SP02
+				
+				redBuffer[i] = particleSensor->getRed();
+				irBuffer[i] = particleSensor->getIR();
+				particleSensor->nextSample(); //We're finished with this sample so move to next sample
+				//After gathering 25 new samples recalculate HR and SP02
+				
+			}
 			maxim_heart_rate_and_oxygen_saturation(irBuffer, bufferLength, redBuffer, &spo2_value, &validSPO2, &heartRate, &validHeartRate);
 		}
-		switch(type)
-		{
-			case 0:
-				myspo2 = (uint8_t)spo2_value;
-				break;
-				
-			case 1:
-				myspo2 = (uint8_t)validSPO2;
-				break;
-				
-		}
+			switch(type)
+			{
+				case 0:
+					myspo2 = (uint8_t)spo2_value;
+					break;
+					
+				case 1:
+					myspo2 = (uint8_t)validSPO2;
+					break;
+					
+			}
 		return myspo2;
 	}
 	
